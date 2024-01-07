@@ -2,28 +2,32 @@
 
 import MenuPage from "../pageobjects/MenuPage";
 import LoginPage from "../pageobjects/LoginPage";
+import ProductsPage from "../pageobjects/ProductsPage";
 
 describe('Menu', () => {
     beforeEach(() => {
+        cy.visit("https://www.saucedemo.com")
+        LoginPage.logIn("standard_user", "secret_sauce")
+        ProductsPage.page.should('be.visible');
         MenuPage.open();
     });
 
-    it('should be able to open the products page', () => {
+    it('open the products page', () => {
         MenuPage.openProductsPage();
-        // TODO Products Page should be.visible
+        ProductsPage.page.should('be.visible');
     });
 
-    it('should be able to open the about page', () => {
+    it('open the about page', () => {
       MenuPage.openAboutPage();
       // TODO check the expected page
     });
 
-    it('should be able to log out', () => {
+    it('log out', () => {
         MenuPage.logout();
         LoginPage.page.should('be.visible');
     });
 
-    it('should be able to clear the cart', () => {
+    it('clear the cart', () => {
         MenuPage.resetAppState();
         // TODO check the state
     });

@@ -1,5 +1,7 @@
 class ProductsPage {
 
+    // Properties
+
     isOnPage() {
         return cy.get('#inventory_container').eq(0)
     }
@@ -20,13 +22,14 @@ class ProductsPage {
         return cy.get('.btn_secondary.btn_inventory');
     }
 
-    //
+    // Methods
+
     openProductDetails(productName) {
         this.productList.contains(productName).click();
     }
 
     addToCart(productName) {
-        cy.log('Product name = ' + productName);
+        cy.log('Product name: ' + productName);
 
         // This works
         //cy.get('.inventory_item:contains("Sauce Labs Backpack") .btn_inventory').click();
@@ -52,7 +55,7 @@ class ProductsPage {
     }
 
     removeFromCart(productName) {
-        cy.log('Product name = ' + productName);
+        cy.log('Product name: ' + productName);
         cy.get('.inventory_item:contains("' + productName + '") .btn_secondary.btn_inventory').click();
     }
 }
