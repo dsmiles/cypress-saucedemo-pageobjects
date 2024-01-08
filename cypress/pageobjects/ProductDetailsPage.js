@@ -41,7 +41,7 @@ class ProductDetailsPage {
         this.removeButton.click();
     }
 
-    goBack() {
+    backToProducts() {
         this.backButton.click();
     }
 }
