@@ -6,7 +6,7 @@ import ProductDetailsPage from "../pageobjects/ProductDetailsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
 import CartSummaryPage from "../pageobjects/CartSummaryPage";
 
-describe('Products page', () => {
+describe('Product overview page', () => {
     beforeEach(() => {
         cy.visit("https://www.saucedemo.com")
         LoginPage.logIn("standard_user", "secret_sauce")

@@ -5,20 +5,8 @@ import ProductsPage from "../pageobjects/ProductsPage";
 import ProductDetailsPage from "../pageobjects/ProductDetailsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
 
-describe('Product Details page', () => {
+describe('Product details page', () => {
     beforeEach(() => {
-        cy.intercept("POST","https://events.backtrace.io/**", {
-            body: undefined
-        })
-
-        cy.intercept("OPTIONS","https://events.backtrace.io/**", {
-            body: undefined
-        })
-
-        cy.intercept('/service-workers.js', {
-            body: undefined
-        })
-
         cy.visit("https://www.saucedemo.com")
         LoginPage.logIn("standard_user", "secret_sauce")
         ProductsPage.page.should('be.visible');

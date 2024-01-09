@@ -3,8 +3,7 @@
 import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
 
-describe('Products page sorting', () => {
-
+describe('Product page sorting', () => {
     beforeEach(() => {
         cy.visit("https://www.saucedemo.com");
         LoginPage.logIn("standard_user", "secret_sauce");
