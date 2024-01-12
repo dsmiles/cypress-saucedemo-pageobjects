@@ -3,7 +3,7 @@
 import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
-import CartSummaryPage from "../pageobjects/CartSummaryPage";
+import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 import CheckoutInfoPage from "../pageobjects/CheckoutInfoPage";
 import CheckoutSummaryPage from "../pageobjects/CheckoutSummaryPage";
 
@@ -16,14 +16,14 @@ describe('Checkout information', () => {
         const productName = 'Sauce Labs Bolt T-Shirt';
         ProductsPage.addToCart(productName);
         HeaderPage.openCart();
-        CartSummaryPage.page.should('be.visible');
-        CartSummaryPage.goToCheckout();
+        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.goToCheckout();
         CheckoutInfoPage.page.should('be.visible');
     })
 
     it('cancel the checkout', () => {
         CheckoutInfoPage.cancelCheckout();
-        CartSummaryPage.page.should('be.visible');
+        ShoppingCartPage.page.should('be.visible');
     });
 
     // TODO - Remove - equivalence partitioning means these are the same
