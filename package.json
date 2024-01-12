@@ -1,6 +1,25 @@
 {
   "name": "cypress-saucedemo-pageobjects",
   "version": "1.0.0",
+  "description": "Demonstrate the use of page objects when automating the SauceLabs demo website",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:chrome": "cypress run --browser=chrome",
+    "cypress:chromium": "cypress run --browser=chromium",
+    "cypress:firefox": "cypress run --browser=firefox",
+    "cypress:edge": "cypress run --browser=edge",
+    "cypress:headless": "cypress run --headless --browser chrome"
+  },
+  "keywords": [
+    "automation",
+    "cypress",
+    "end-to-end",
+    "page object",
+    "test",
+    "testing",
+    "web"
+  ],
+  "author": "David Smiles",
   "devDependencies": {
     "cypress": "*"
   }
