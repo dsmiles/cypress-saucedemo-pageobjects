@@ -4,7 +4,7 @@ import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
 import ProductDetailsPage from "../pageobjects/ProductDetailsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
-import CartSummaryPage from "../pageobjects/CartSummaryPage";
+import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 
 describe('Product overview page', () => {
     beforeEach(() => {
@@ -42,8 +42,8 @@ describe('Product overview page', () => {
         ProductsPage.removeButton.should('not.exist')
     })
 
-    it('open the cart summary page', () => {
+    it('open the shopping cart page', () => {
         HeaderPage.openCart();
-        CartSummaryPage.page.should('be.visible');
+        ShoppingCartPage.page.should('be.visible');
     })
 })

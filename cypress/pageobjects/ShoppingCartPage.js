@@ -1,4 +1,4 @@
-class CartSummaryPage {
+class ShoppingCartPage {
 
     // Properties
 
@@ -44,4 +44,4 @@ class CartSummaryPage {
     }
 }
 
-export default new CartSummaryPage();
+export default new ShoppingCartPage();
