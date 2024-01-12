@@ -30,10 +30,6 @@ class CartSummaryPage {
         return cy.dataTest('checkout');
     }
 
-    removeItem() {
-        this.removeButton.click();
-    }
-
     removeFromCart(productName) {
         cy.log('Product name: ' + productName);
         cy.get('.cart_item:contains("' + productName + '") .btn_secondary.cart_button').click();

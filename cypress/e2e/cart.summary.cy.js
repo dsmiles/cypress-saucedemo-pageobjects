@@ -44,7 +44,7 @@ describe('Shopping cart summary', () => {
         HeaderPage.cart.should('have.text', '');
     });
 
-    it('can open the checkout page', () => {
+    it('can open the checkout information page', () => {
         const productName = 'Sauce Labs Bike Light';
         ProductsPage.addToCart(productName);
         HeaderPage.openCart();
