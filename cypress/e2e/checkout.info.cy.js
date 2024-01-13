@@ -9,7 +9,6 @@ import CheckoutSummaryPage from "../pageobjects/CheckoutSummaryPage";
 
 describe('Checkout information', () => {
     beforeEach(() => {
-        cy.visit("https://www.saucedemo.com")
         LoginPage.logIn("standard_user", "secret_sauce")
         ProductsPage.page.should('be.visible');
 

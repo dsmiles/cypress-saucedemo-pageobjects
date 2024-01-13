@@ -8,7 +8,6 @@ import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 
 describe('Product overview page', () => {
     beforeEach(() => {
-        cy.visit("https://www.saucedemo.com")
         LoginPage.logIn("standard_user", "secret_sauce")
         ProductsPage.page.should('be.visible');
     })
