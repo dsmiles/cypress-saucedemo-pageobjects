@@ -5,7 +5,6 @@ import ProductsPage from "../pageobjects/ProductsPage";
 
 describe('Product page sorting', () => {
     beforeEach(() => {
-        cy.visit("https://www.saucedemo.com");
         LoginPage.logIn("standard_user", "secret_sauce");
         ProductsPage.page.should('be.visible');
     })

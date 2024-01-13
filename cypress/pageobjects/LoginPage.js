@@ -1,4 +1,5 @@
 class LoginPage {
+
     get page() {
         return cy.get('#login_button_container');
     }
@@ -26,6 +27,14 @@ class LoginPage {
      * @param {string} password
      */
     logIn(username, password) {
+        // The demo site from Sauce Labs has a problem with the way Service Workers have been
+        // configured. It sometimes causes the 'load' event not to happen. I tried various ways
+        // to resolve the issue, but the solution was to simply disable the service worker by
+        // stubbing the API call.
+        cy.intercept('/service-worker.js', {
+            body: undefined
+        })
+        cy.visit('/');
 
         if (username) {
             this.username.type(username);
