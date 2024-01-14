@@ -46,7 +46,7 @@ describe('Checkout information', () => {
         CheckoutInfoPage.errorMessage.should('have.text', 'Error: Postal Code is required');
     });
 
-    it.only('continue to checkout', () => {
+    it('continue to checkout', () => {
         CheckoutInfoPage.submitPersonalInfo('John', 'Smith', 'BS7 8EU');
         CheckoutSummaryPage.page.should('be.visible');
     });
