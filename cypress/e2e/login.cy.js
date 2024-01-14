@@ -17,7 +17,7 @@ describe ('LoginPage', () => {
     })
 
     context('given valid user credentials', () => {
-        it.only('redirects to products page', () => {
+        it('redirects to products page', () => {
             LoginPage.logIn("standard_user", "secret_sauce")
             ProductsPage.page.should('be.visible');
         })
