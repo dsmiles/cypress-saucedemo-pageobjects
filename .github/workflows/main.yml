@@ -7,5 +7,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress run
+      - name: E2E run on Chrome
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+
+      - name: E2E run on Firefox
+        uses: cypress-io/github-action@v6
+        with:
+          browser: firefox
