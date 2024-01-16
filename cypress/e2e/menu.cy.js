@@ -3,10 +3,11 @@
 import MenuPage from "../pageobjects/MenuPage";
 import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
+import {STANDARD_USER} from "../support/constants/Users";
 
 describe('Menu', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce")
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
         MenuPage.open();
     });
@@ -16,9 +17,13 @@ describe('Menu', () => {
         ProductsPage.page.should('be.visible');
     });
 
-    it('open the about page', () => {
+    it.skip('open the about page', () => {
       MenuPage.openAboutPage();
-      // TODO check the expected page
+      ProductsPage.page.should('not.exist');
+        // This option redirects the web browser to a page on a different
+        // domain (https://saucelabs.com). Sometimes, the page loads and
+        // sometimes it doesn't. Therefore, skipping this page until I
+        // find a solution.
     });
 
     it('log out', () => {

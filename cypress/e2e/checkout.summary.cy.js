@@ -7,14 +7,15 @@ import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 import CheckoutInfoPage from "../pageobjects/CheckoutInfoPage";
 import CheckoutSummaryPage from "../pageobjects/CheckoutSummaryPage";
 import CheckoutCompletePage from "../pageobjects/CheckoutCompletePage";
+import {STANDARD_USER} from "../support/constants/Users";
+import {PRODUCT_NAMES} from "../support/constants/ProductData";
 
 describe('Checkout overview', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce")
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
 
-        const productName = 'Sauce Labs Bolt T-Shirt';
-        ProductsPage.addToCart(productName);
+        ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
         ShoppingCartPage.page.should('be.visible');
         ShoppingCartPage.goToCheckout();

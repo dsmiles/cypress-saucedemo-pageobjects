@@ -5,10 +5,12 @@ import ProductsPage from "../pageobjects/ProductsPage";
 import ProductDetailsPage from "../pageobjects/ProductDetailsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
 import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
+import {STANDARD_USER} from "../support/constants/Users";
+import {PRODUCT_NAMES} from "../support/constants/ProductData";
 
 describe('Product overview page', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce")
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
     })
 
@@ -19,23 +21,23 @@ describe('Product overview page', () => {
     });
 
     it('product details can be opened', () => {
-        ProductsPage.openProductDetails('Sauce Labs Bike Light');
+        ProductsPage.openProductDetails(PRODUCT_NAMES.BIKE_LIGHT);
         ProductDetailsPage.page.should('be.visible');
         ProductDetailsPage.page.contains('Sauce Labs Bike Light')
     })
 
     it('add a product to the cart', () => {
         HeaderPage.cart.should('have.text', '');
-        ProductsPage.addToCart('Sauce Labs Backpack');
+        ProductsPage.addToCart(PRODUCT_NAMES.BACKPACK);
         HeaderPage.cart.should('have.text', '1');
         ProductsPage.addButton.should('be.visible').should('have.length', 5);
         ProductsPage.removeButton.should('be.visible').should('have.length', 1);
     })
 
     it('remove a product from the cart', () => {
-        ProductsPage.addToCart('Sauce Labs Backpack');
+        ProductsPage.addToCart(PRODUCT_NAMES.BACKPACK);
         HeaderPage.cart.should('have.text', '1');
-        ProductsPage.removeFromCart('Sauce Labs Backpack')
+        ProductsPage.removeFromCart(PRODUCT_NAMES.BACKPACK)
         HeaderPage.cart.should('have.text', '');
         ProductsPage.addButton.should('be.visible').should('have.length', 6);
         ProductsPage.removeButton.should('not.exist')

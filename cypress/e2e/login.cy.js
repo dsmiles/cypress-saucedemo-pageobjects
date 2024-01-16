@@ -2,6 +2,7 @@
 
 import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
+import {LOCKED_USER, STANDARD_USER} from "../support/constants/Users";
 
 describe ('LoginPage', () => {
 
@@ -18,14 +19,14 @@ describe ('LoginPage', () => {
 
     context('given valid user credentials', () => {
         it('redirects to products page', () => {
-            LoginPage.logIn("standard_user", "secret_sauce")
+            LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD)
             ProductsPage.page.should('be.visible');
         })
     })
 
     context('given INVALID user credentials', () => {
         it('shows login error', () => {
-            LoginPage.logIn("locked_out_user", "secret_sauce");
+            LoginPage.logIn(LOCKED_USER.USERNAME, LOCKED_USER.PASSWORD);
             LoginPage.errorMessage.should('have.text','Epic sadface: Sorry, this user has been locked out.');
         })
     })

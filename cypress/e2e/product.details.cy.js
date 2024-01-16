@@ -4,22 +4,24 @@ import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
 import ProductDetailsPage from "../pageobjects/ProductDetailsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
+import {STANDARD_USER} from "../support/constants/Users";
+import {PRODUCT_NAMES} from "../support/constants/ProductData";
 
 describe('Product details page', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce")
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
     })
 
     it('go back to the products page', () => {
-        ProductsPage.openProductDetails('Sauce Labs Bike Light');
+        ProductsPage.openProductDetails(PRODUCT_NAMES.BIKE_LIGHT);
         ProductDetailsPage.page.should('be.visible');
         ProductDetailsPage.backToProducts();
         ProductDetailsPage.page.should('not.exist');
     })
 
     it('add a product to the cart', () => {
-        ProductsPage.openProductDetails('Sauce Labs Bike Light');
+        ProductsPage.openProductDetails(PRODUCT_NAMES.BIKE_LIGHT);
         ProductDetailsPage.page.should('be.visible');
 
         HeaderPage.cart.should('have.text', '');
@@ -31,7 +33,7 @@ describe('Product details page', () => {
     })
 
     it('remove a product from the cart', () => {
-        ProductsPage.openProductDetails('Sauce Labs Bike Light');
+        ProductsPage.openProductDetails(PRODUCT_NAMES.BIKE_LIGHT);
         ProductDetailsPage.page.should('be.visible');
         ProductDetailsPage.addToCart();
 

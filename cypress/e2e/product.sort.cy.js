@@ -2,10 +2,12 @@
 
 import LoginPage from "../pageobjects/LoginPage";
 import ProductsPage from "../pageobjects/ProductsPage";
+import {STANDARD_USER} from "../support/constants/Users";
+import {PRODUCT_NAMES} from "../support/constants/ProductData";
 
 describe('Product page sorting', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce");
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
     })
 
@@ -23,12 +25,12 @@ describe('Product page sorting', () => {
 
     it('sorts products by name (A to Z)', () => {
         const expectedProductOrder = [
-            'Sauce Labs Backpack',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Bolt T-Shirt',
-            'Sauce Labs Fleece Jacket',
-            'Sauce Labs Onesie',
-            'Test.allTheThings() T-Shirt (Red)'
+            PRODUCT_NAMES.BACKPACK,
+            PRODUCT_NAMES.BIKE_LIGHT,
+            PRODUCT_NAMES.BOLT_TSHIRT,
+            PRODUCT_NAMES.FLEECE_JACKET,
+            PRODUCT_NAMES.ONESIE,
+            PRODUCT_NAMES.TATT_TSHIRT
         ];
 
         testProductSorting('az', expectedProductOrder);
@@ -36,12 +38,12 @@ describe('Product page sorting', () => {
 
     it('sorts products by name (Z to A)', () => {
         const expectedProductOrder = [
-            'Test.allTheThings() T-Shirt (Red)',
-            'Sauce Labs Onesie',
-            'Sauce Labs Fleece Jacket',
-            'Sauce Labs Bolt T-Shirt',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Backpack',
+            PRODUCT_NAMES.TATT_TSHIRT,
+            PRODUCT_NAMES.ONESIE,
+            PRODUCT_NAMES.FLEECE_JACKET,
+            PRODUCT_NAMES.BOLT_TSHIRT,
+            PRODUCT_NAMES.BIKE_LIGHT,
+            PRODUCT_NAMES.BACKPACK,
         ];
 
         testProductSorting('za', expectedProductOrder);
@@ -49,12 +51,12 @@ describe('Product page sorting', () => {
 
     it('sorts products by price (low to high)', () => {
         const expectedProductOrder = [
-            'Sauce Labs Onesie',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Bolt T-Shirt',
-            'Test.allTheThings() T-Shirt (Red)',
-            'Sauce Labs Backpack',
-            'Sauce Labs Fleece Jacket'
+            PRODUCT_NAMES.ONESIE,
+            PRODUCT_NAMES.BIKE_LIGHT,
+            PRODUCT_NAMES.BOLT_TSHIRT,
+            PRODUCT_NAMES.TATT_TSHIRT,
+            PRODUCT_NAMES.BACKPACK,
+            PRODUCT_NAMES.FLEECE_JACKET
         ];
 
         testProductSorting('lohi', expectedProductOrder);
@@ -62,12 +64,12 @@ describe('Product page sorting', () => {
 
     it('sorts products by price (high to low)', () => {
         const expectedProductOrder = [
-            'Sauce Labs Fleece Jacket',
-            'Sauce Labs Backpack',
-            'Sauce Labs Bolt T-Shirt',
-            'Test.allTheThings() T-Shirt (Red)',
-            'Sauce Labs Bike Light',
-            'Sauce Labs Onesie'
+            PRODUCT_NAMES.FLEECE_JACKET,
+            PRODUCT_NAMES.BACKPACK,
+            PRODUCT_NAMES.BOLT_TSHIRT,
+            PRODUCT_NAMES.TATT_TSHIRT,
+            PRODUCT_NAMES.BIKE_LIGHT,
+            PRODUCT_NAMES.ONESIE
         ];
 
         testProductSorting('hilo', expectedProductOrder);
