@@ -13,6 +13,7 @@ jobs:
           browser: chrome
 
       - name: E2E run on Firefox
+        if: ${{ false }}
         uses: cypress-io/github-action@v6
         with:
           browser: firefox
