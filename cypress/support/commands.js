@@ -37,3 +37,8 @@ Cypress.Commands.add('dataTest', {prevSubject: 'optional'}, (subject, value) => 
         return cy.get(`[data-test=${value}]`);
     }
 })
+
+Cypress.Commands.add('setCartContents', (newContents) => {
+    cy.log('Product IDs: ' + newContents);
+    window.localStorage.setItem("cart-contents", JSON.stringify(newContents));
+})

@@ -15,4 +15,15 @@ declare namespace Cypress {
          */
         dataTest(value: string) : Chainable<any>;
     }
+
+    interface Chainable<Subject = any> {
+        /**
+         * Custom command to directly set the contents of the shopping
+         * cart in the web browsers LocalStorage. Takes an array of integers.
+         *
+         * @param newContents - array of product IDs
+         * @example cy.setCartContents([PRODUCTS.BOLT_TSHIRT, PRODUCTS.BACKPACK])
+         */
+        setCartContents(newContents: any): void
+    }
 }
