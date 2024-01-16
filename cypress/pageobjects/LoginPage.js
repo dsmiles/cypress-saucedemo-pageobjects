@@ -1,3 +1,5 @@
+import {ROUTES} from "../support/constants/Routes";
+
 class LoginPage {
 
     get page() {
@@ -34,7 +36,7 @@ class LoginPage {
         cy.intercept('/service-worker.js', {
             body: undefined
         })
-        cy.visit('/');
+        cy.visit(ROUTES.LOGIN);
 
         if (username) {
             this.username.type(username);
