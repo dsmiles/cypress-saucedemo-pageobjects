@@ -5,27 +5,27 @@ import ProductsPage from "../pageobjects/ProductsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
 import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 import CheckoutInfoPage from "../pageobjects/CheckoutInfoPage";
+import {PRODUCT_NAMES} from "../support/constants/ProductData";
+import {STANDARD_USER} from "../support/constants/Users";
 
 describe('Shopping cart summary', () => {
     beforeEach(() => {
-        LoginPage.logIn("standard_user", "secret_sauce")
+        LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
         ProductsPage.page.should('be.visible');
     })
 
     it('cart shows correct details', () => {
-        const productName = 'Sauce Labs Bolt T-Shirt';
-        ProductsPage.addToCart(productName);
+        ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
         ShoppingCartPage.page.should('be.visible');
         ShoppingCartPage.items.should('have.length', 1);
-        ShoppingCartPage.itemName.should('have.text', productName);
+        ShoppingCartPage.itemName.should('have.text', PRODUCT_NAMES.BOLT_TSHIRT);
         ShoppingCartPage.itemPrice.should('have.text', "$15.99");
         HeaderPage.cart.should('have.text', '1');
     });
 
     it('continue shopping', () => {
-        const productName = 'Sauce Labs Fleece Jacket';
-        ProductsPage.addToCart(productName);
+        ProductsPage.addToCart(PRODUCT_NAMES.FLEECE_JACKET);
         HeaderPage.openCart();
         ShoppingCartPage.page.should('be.visible');
         ShoppingCartPage.continueShopping();
@@ -33,19 +33,17 @@ describe('Shopping cart summary', () => {
     });
 
     it('removes a product from the cart', () => {
-        const productName = 'Sauce Labs Bolt T-Shirt';
-        ProductsPage.addToCart(productName);
+        ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
         ShoppingCartPage.page.should('be.visible');
-        ShoppingCartPage.removeFromCart(productName)
+        ShoppingCartPage.removeFromCart(PRODUCT_NAMES.BOLT_TSHIRT)
         ShoppingCartPage.items.should('have.length', 0)
         ShoppingCartPage.removeButton.should('not.exist')
         HeaderPage.cart.should('have.text', '');
     });
 
     it('can open the checkout information page', () => {
-        const productName = 'Sauce Labs Bike Light';
-        ProductsPage.addToCart(productName);
+        ProductsPage.addToCart(PRODUCT_NAMES.BIKE_LIGHT);
         HeaderPage.openCart();
         ShoppingCartPage.page.should('be.visible');
         ShoppingCartPage.goToCheckout();
