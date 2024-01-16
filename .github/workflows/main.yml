@@ -7,5 +7,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress run
+      - name: E2E run on Chrome
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+
+      - name: E2E run on Firefox
+        if: ${{ false }}
+        uses: cypress-io/github-action@v6
+        with:
+          browser: firefox
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
