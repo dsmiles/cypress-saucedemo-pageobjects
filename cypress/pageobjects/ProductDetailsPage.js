@@ -20,7 +20,6 @@ class ProductDetailsPage {
 
     get backButton() {
         return cy.dataTest('back-to-products');
-        //return cy.get('.inventory_details_back_button');
     }
 
     get addButton() {

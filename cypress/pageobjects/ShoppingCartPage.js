@@ -30,9 +30,15 @@ class ShoppingCartPage {
         return cy.dataTest('checkout');
     }
 
+    /**
+     * Removes the specified product from the cart
+     * @param productName
+     */
     removeFromCart(productName) {
         cy.log('Product name: ' + productName);
-        cy.get('.cart_item:contains("' + productName + '") .btn_secondary.cart_button').click();
+        cy.contains('.cart_item', productName)
+            .find('.btn_secondary.cart_button')
+            .click();
     }
 
     continueShopping() {
