@@ -28,18 +28,41 @@ class ProductsPage {
 
     // Methods
 
+    /**
+     * Open the product details page for the specified product
+     * @param productName
+     */
     openProductDetails(productName) {
         this.productList.contains(productName).click();
     }
 
-    addToCart(productName) {
+    /**
+     * Find the specified product in the inventory and click
+     * either the Add or Remove button as appropriate
+     * @param productName
+     * @param action
+     */
+    performCartAction(productName, action) {
         cy.log('Product name: ' + productName);
-        return cy.get('.inventory_item:contains("' + productName + '") .btn_primary.btn_inventory').click();
+        cy.contains('.inventory_item', productName)
+            .find(`.btn_${action.toLowerCase()}.btn_inventory`)
+            .click();
     }
 
+    /**
+     * Add the specified product to the cart
+     * @param productName
+     */
+    addToCart(productName) {
+        this.performCartAction(productName, 'Primary');
+    }
+
+    /**
+     * Remove the specified product from the cart
+     * @param productName
+     */
     removeFromCart(productName) {
-        cy.log('Product name: ' + productName);
-        cy.get('.inventory_item:contains("' + productName + '") .btn_secondary.btn_inventory').click();
+        this.performCartAction(productName, 'Secondary');
     }
 }
 
