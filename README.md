@@ -6,6 +6,7 @@ Example Cypress web automation project.
 
 - [Introduction](#introduction)
 - [Testing Strategy](#testing-strategy)
+- [Automation shortcuts](#automation-shortcuts)
 - [Prerequisites](#Prerequisites)
 - [Installation](#installation)
 - [Running the tests](#running-the-tests)
@@ -27,10 +28,45 @@ This repo contains an example of how to incorporate page objects into a Cypress 
 Before writing any E2E tests, my testing strategy was to visually document the site's most important areas for test coverage. I documented all the web pages and made notes on the functionality that needed testing on each.
 
 ![Site map of Saucedemo Website](/assets/images/Saucedemo-Page-Map.png)
+*Sitemap Made with MindNode v.2.5.8*
 
-Thinking through your application upfront makes writing tests muc more straightforward. It allows you to break up the work into smaller tasks. Visual documentation, such as the diagram above, provides a 'map' that offers a high-level overview of the application's testing surface, aiding in understanding the overall structure.
+Thinking through the application upfront makes writing tests much more straightforward. It allowed me to break up the work into smaller tasks. Visual documentation, such as the diagram above, provides a 'map' that offers a high-level overview of the application's testing surface, aiding in understanding the overall structure.
 
-After documenting the functionality from each view or page, you can then determine the various paths or scenarios a user could take through the application. 
+After documenting the functionality from each view or page, I was able to  determine the various paths or scenarios a user could take through the application. 
+For example, a user logging on, browsing for products, buying an item, and then logging off. 
+The scenario could touch many different functions of the application, such as the UI, an API, or a database. 
+
+### Automation shortcuts
+As part of the process, I also looked for 'automation shortcuts' that would allow me to bypass parts of the application to avoid having to use the UI to build up the state for a test.
+
+For example:
+
+- **Logon process**
+
+   This application store valid usernames in a cooke called `session-state`. Can I set this value and bypass the logon page?
+
+
+- **Adding items to the shopping cart**
+
+   This application stores the selected inventory items in LocalStorage as key-value pair in LocalStorage called `cart-contents` as an array of integer values.
+
+
+- **Jumping directly to pages**
+
+   I identified the various 'routes' to the different pages in the application. Can I jump directly to a page using the `cy.visit()` command?
+
+
+- **APIs**
+
+   Are there APIs I can use in my automation to set application state?
+
+
+- **What has been unit tested?**
+  
+  What has already been united tested? There is no point in repeating multiple tests in the UI if they're already been unit tested. 
+  For example, unit tests may have already tested multiple logon scenarios. No point writing multiple UI level tests for the same thing.
+
+Unfortunately, the only shortcut that I could exploit was the shopping cart. All the rest in the demo website are blocked at an application level. Shame :-(
 
 ### Prerequisites
 
