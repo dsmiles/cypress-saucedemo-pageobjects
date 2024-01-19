@@ -43,28 +43,27 @@ For example:
 
 - **Logon process**
 
-   This application store valid usernames in a cooke called `session-state`. Can I set this value and bypass the logon page?
+   This application store valid usernames in a cooke called `session-state`. Can I set this value and bypass the logon page? No, I can't.
 
 
 - **Adding items to the shopping cart**
 
-   This application stores the selected inventory items in LocalStorage as key-value pair in LocalStorage called `cart-contents` as an array of integer values.
+   This application stores the selected inventory items as an array of integer values in a key-value pair in LocalStorage called `cart-contents`. Can I set this value and bypass the add/remove steps? Yes, I can.
 
 
 - **Jumping directly to pages**
 
-   I identified the various 'routes' to the different pages in the application. Can I jump directly to a page using the `cy.visit()` command?
+   I identified the various 'routes' to the different pages in the application. Can I jump directly to a page using the `cy.visit()` command? No, I can't and  I've tried.
 
 
 - **APIs**
 
-   Are there APIs I can use in my automation to set application state?
+   Are there APIs I can use in my automation to set application state? No, there aren't.
 
 
 - **What has been unit tested?**
   
-  What has already been united tested? There is no point in repeating multiple tests in the UI if they're already been unit tested. 
-  For example, unit tests may have already tested multiple logon scenarios. No point writing multiple UI level tests for the same thing.
+  What has already been united tested? Unit tests may have already tested multiple goog/bad logon scenarios. No point writing multiple UI level tests for the same thing.  No information was available on the demo website so I made some assumptions.
 
 Unfortunately, the only shortcut that I could exploit was the shopping cart. All the rest in the demo website are blocked at an application level. Shame :-(
 
