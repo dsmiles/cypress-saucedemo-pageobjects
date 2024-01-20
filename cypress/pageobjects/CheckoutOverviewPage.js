@@ -1,4 +1,4 @@
-class CheckoutSummaryPage {
+class CheckoutOverviewPage {
 
     get page() {
         return cy.get('#checkout_summary_container');
@@ -43,4 +43,4 @@ class CheckoutSummaryPage {
     }
 }
 
-export default new CheckoutSummaryPage();
+export default new CheckoutOverviewPage();
