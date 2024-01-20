@@ -2,7 +2,7 @@ class ProductDetailsPage {
 
     // Properties
 
-    get page() {
+    get view() {
         return cy.get('#inventory_item_container');
     }
 

@@ -12,18 +12,18 @@ import {PRODUCT_NAMES} from "../support/constants/ProductData";
 describe('Checkout information', () => {
     beforeEach(() => {
         LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
 
         ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.goToCheckout();
-        CheckoutInfoPage.page.should('be.visible');
+        CheckoutInfoPage.view.should('be.visible');
     })
 
     it('cancel the checkout', () => {
         CheckoutInfoPage.cancelCheckout();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
     });
 
     // TODO - Remove - equivalence partitioning means these are the same
@@ -49,6 +49,6 @@ describe('Checkout information', () => {
 
     it('continue to checkout', () => {
         CheckoutInfoPage.submitPersonalInfo('John', 'Smith', 'BS7 8EU');
-        CheckoutOverviewPage.page.should('be.visible');
+        CheckoutOverviewPage.view.should('be.visible');
     });
 });

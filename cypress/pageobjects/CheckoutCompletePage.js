@@ -1,6 +1,6 @@
 class CheckoutCompletePage {
 
-    get page() {
+    get view() {
         return cy.get('#checkout_complete_container');
     }
 

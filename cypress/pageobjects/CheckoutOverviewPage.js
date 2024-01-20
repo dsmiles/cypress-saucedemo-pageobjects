@@ -1,6 +1,6 @@
 class CheckoutOverviewPage {
 
-    get page() {
+    get view() {
         return cy.get('#checkout_summary_container');
     }
 

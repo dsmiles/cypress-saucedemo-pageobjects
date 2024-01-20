@@ -2,7 +2,7 @@ import {ROUTES} from "../support/constants/Routes";
 
 class LoginPage {
 
-    get page() {
+    get view() {
         return cy.get('#login_button_container');
     }
 
