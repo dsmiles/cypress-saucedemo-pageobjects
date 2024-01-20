@@ -5,7 +5,7 @@ import ProductsPage from "../pageobjects/ProductsPage";
 import HeaderPage from "../pageobjects/HeaderPage";
 import ShoppingCartPage from "../pageobjects/ShoppingCartPage";
 import CheckoutInfoPage from "../pageobjects/CheckoutInfoPage";
-import CheckoutSummaryPage from "../pageobjects/CheckoutSummaryPage";
+import CheckoutOverviewPage from "../pageobjects/CheckoutOverviewPage";
 import CheckoutCompletePage from "../pageobjects/CheckoutCompletePage";
 import {STANDARD_USER} from "../support/constants/Users";
 import {PRODUCT_NAMES} from "../support/constants/ProductData";
@@ -21,8 +21,8 @@ describe('Checkout complete', () => {
         ShoppingCartPage.goToCheckout();
         CheckoutInfoPage.page.should('be.visible');
         CheckoutInfoPage.submitPersonalInfo('John', 'Smith', 'BS7 8EU');
-        CheckoutSummaryPage.page.should('be.visible');
-        CheckoutSummaryPage.finishCheckout();
+        CheckoutOverviewPage.page.should('be.visible');
+        CheckoutOverviewPage.finishCheckout();
         CheckoutCompletePage.page.should('be.visible');
     })
 
