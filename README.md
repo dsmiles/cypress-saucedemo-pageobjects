@@ -63,7 +63,7 @@ For example:
 
 - **What has been unit tested?**
   
-  What has already been united tested? Unit tests may have already tested multiple goog/bad logon scenarios. No point writing multiple UI level tests for the same thing.  No information was available on the demo website so I made some assumptions.
+  What has already been united tested? Unit tests may have already tested multiple good/bad logon scenarios. No point writing multiple UI level tests for the same thing.  No information was available on the demo website, so I made some assumptions.
 
 Unfortunately, the only shortcut that I could exploit was the shopping cart. All the rest in the demo website are blocked at an application level. Shame :-(
 
