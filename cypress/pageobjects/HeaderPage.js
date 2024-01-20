@@ -1,6 +1,6 @@
 class HeaderPage {
 
-    get page() {
+    get view() {
         return cy.get('#header_container');
     }
 

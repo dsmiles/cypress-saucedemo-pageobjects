@@ -13,15 +13,15 @@ import {PRODUCT_NAMES} from "../support/constants/ProductData";
 describe('Checkout overview', () => {
     beforeEach(() => {
         LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
 
         ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.goToCheckout();
-        CheckoutInfoPage.page.should('be.visible');
+        CheckoutInfoPage.view.should('be.visible');
         CheckoutInfoPage.submitPersonalInfo('John', 'Smith', 'BS7 8EU');
-        CheckoutOverviewPage.page.should('be.visible');
+        CheckoutOverviewPage.view.should('be.visible');
     })
 
     it('one product is present in checkout overview', () => {
@@ -33,12 +33,12 @@ describe('Checkout overview', () => {
 
     it('cancel the checkout and return to the products page', () => {
         CheckoutOverviewPage.cancelCheckout();
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
         HeaderPage.cart.should('have.text', '1');
     })
 
     it('complete the checkout and go to the finished page', () => {
         CheckoutOverviewPage.finishCheckout();
-        CheckoutCompletePage.page.should('be.visible');
+        CheckoutCompletePage.view.should('be.visible');
     })
 });

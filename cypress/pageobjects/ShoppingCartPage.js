@@ -2,7 +2,7 @@ class ShoppingCartPage {
 
     // Properties
 
-    get page() {
+    get view() {
         return cy.get('#cart_contents_container');
     }
 

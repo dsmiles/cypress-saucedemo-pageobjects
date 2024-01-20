@@ -1,6 +1,6 @@
 class CheckoutInfoPage {
 
-    get page() {
+    get view() {
         return cy.get('#checkout_info_container');
     }
 

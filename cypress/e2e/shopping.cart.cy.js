@@ -11,13 +11,13 @@ import {STANDARD_USER} from "../support/constants/Users";
 describe('Shopping cart summary', () => {
     beforeEach(() => {
         LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
     })
 
     it('cart shows correct details', () => {
         ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.items.should('have.length', 1);
         ShoppingCartPage.itemName.should('have.text', PRODUCT_NAMES.BOLT_TSHIRT);
         ShoppingCartPage.itemPrice.should('have.text', "$15.99");
@@ -27,15 +27,15 @@ describe('Shopping cart summary', () => {
     it('continue shopping', () => {
         ProductsPage.addToCart(PRODUCT_NAMES.FLEECE_JACKET);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.continueShopping();
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
     });
 
     it('removes a product from the cart', () => {
         ProductsPage.addToCart(PRODUCT_NAMES.BOLT_TSHIRT);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.removeFromCart(PRODUCT_NAMES.BOLT_TSHIRT)
         ShoppingCartPage.items.should('have.length', 0)
         ShoppingCartPage.removeButton.should('not.exist')
@@ -45,8 +45,8 @@ describe('Shopping cart summary', () => {
     it('can open the checkout information page', () => {
         ProductsPage.addToCart(PRODUCT_NAMES.BIKE_LIGHT);
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
         ShoppingCartPage.goToCheckout();
-        CheckoutInfoPage.page.should('be.visible');
+        CheckoutInfoPage.view.should('be.visible');
     });
 });

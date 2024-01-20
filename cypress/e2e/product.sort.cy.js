@@ -8,7 +8,7 @@ import {PRODUCT_NAMES} from "../support/constants/ProductData";
 describe('Product page sorting', () => {
     beforeEach(() => {
         LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
     })
 
     function testProductSorting(sortOption, expectedProductOrder) {

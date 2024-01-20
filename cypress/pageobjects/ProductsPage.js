@@ -2,11 +2,11 @@ class ProductsPage {
 
     // Properties
 
-    get page() {
+    get view() {
         return cy.get('.inventory_list');
     }
 
-    get productList() {
+    get items() {
         return cy.get('.inventory_item');
     }
 
@@ -33,7 +33,7 @@ class ProductsPage {
      * @param productName
      */
     openProductDetails(productName) {
-        this.productList.contains(productName).click();
+        this.items.contains(productName).click();
     }
 
     /**

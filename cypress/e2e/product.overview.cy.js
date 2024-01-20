@@ -11,19 +11,19 @@ import {PRODUCT_NAMES} from "../support/constants/ProductData";
 describe('Product overview page', () => {
     beforeEach(() => {
         LoginPage.logIn(STANDARD_USER.USERNAME, STANDARD_USER.PASSWORD);
-        ProductsPage.page.should('be.visible');
+        ProductsPage.view.should('be.visible');
     })
 
     it('all products displayed with expected state', () => {
-        ProductsPage.productList.should('have.length', 6);
+        ProductsPage.items.should('have.length', 6);
         ProductsPage.addButton.should('be.visible').should('have.length', 6);
         ProductsPage.removeButton.should('not.exist');
     });
 
     it('product details can be opened', () => {
         ProductsPage.openProductDetails(PRODUCT_NAMES.BIKE_LIGHT);
-        ProductDetailsPage.page.should('be.visible');
-        ProductDetailsPage.page.contains('Sauce Labs Bike Light')
+        ProductDetailsPage.view.should('be.visible');
+        ProductDetailsPage.view.contains('Sauce Labs Bike Light')
     })
 
     it('add a product to the cart', () => {
@@ -45,6 +45,6 @@ describe('Product overview page', () => {
 
     it('open the shopping cart page', () => {
         HeaderPage.openCart();
-        ShoppingCartPage.page.should('be.visible');
+        ShoppingCartPage.view.should('be.visible');
     })
 })
